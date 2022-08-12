@@ -1,0 +1,110 @@
+
+<!--
+  //FORM API test
+<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+  Favorite Color1: <input name="favoriteColor1" [(ngModel)]="favoriteColor1">
+  <br>
+  <br>
+  Favorite Color2: <goa-input name="favoriteColor2" [(ngModel)]="favoriteColor2"></goa-input>
+</form>
+
+<br>
+favoriteColor1 is {{favoriteColor1}}
+<br>
+favoriteColor2 is {{favoriteColor2}}
+
+-->
+
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+  <goa-container headingsize="small" variant="primary">
+
+    <goa-flex-row gap="medium">
+      <goa-form-item label="Your role">
+        <goa-input
+          width="100%"
+          name="userRole"
+          formControlName="userRole"
+        >
+        </goa-input>
+      </goa-form-item>
+    </goa-flex-row>
+
+
+    <goa-flex-row gap="medium">
+      <goa-form-item label="Start date">
+        <goa-input
+          width="100%"
+          name="startDate"
+          formControlName="startDate"
+        ></goa-input>
+      </goa-form-item>
+
+      <goa-flex-col>
+        <goa-form-item label="End date">
+          <goa-input
+            width="100%"
+            name="endDate"
+            formControlName="endDate"
+          >
+          </goa-input>
+        </goa-form-item>
+        <goa-checkbox
+          name="currently-employed"
+          formControlName="isCurrentlyEmployed"
+        >
+          Currently employed
+        </goa-checkbox>
+      </goa-flex-col>
+    </goa-flex-row>
+
+    <goa-flex-row gap="medium">
+      <goa-form-item label="Number of months">
+        <goa-input
+          width="100%"
+          name="months"
+          type="number"
+          formControlName="numberOfMonths"
+        >
+        </goa-input>
+      </goa-form-item>
+
+      <goa-form-item label="Number of hours">
+        <goa-input
+          width="100%"
+          name="hours"
+          type="number"
+          formControlName="numberOfHours"
+        >
+        </goa-input>
+      </goa-form-item>
+    </goa-flex-row>
+
+    <goa-flex-row gap="medium">
+      <goa-form-item label="Description of work" optional="true" helpText="Describe other unique tasks">
+        <goa-textarea
+          width="100%"
+          name="tasks"
+          showCounter="true"
+          maxCharCount="200"
+          formControlName="descriptionOfWork"
+        >
+        </goa-textarea>
+      </goa-form-item>
+    </goa-flex-row>
+
+    <goa-flex-row gap="medium">
+      <goa-form-item label="Job Type">
+        <goa-radio-group
+          name="jobtype"></goa-radio-group>
+      </goa-form-item>
+    </goa-flex-row>
+
+    <goa-button-group alignment="start">
+      <goa-button type="secondary">Back</goa-button>
+      <button type="submit" [disabled]="!profileForm.valid">Save</button>
+    </goa-button-group>
+
+  </goa-container>
+</form>

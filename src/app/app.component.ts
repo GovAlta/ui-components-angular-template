@@ -3,8 +3,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'ui-components-angular-template';
+  onInputChangeEvent(event: any) {
+    console.log('onEvent', event.detail);
+  }
+  submitForm() {
+    console.log('handleClick');
+  }
 }
