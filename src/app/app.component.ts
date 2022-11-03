@@ -5,11 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  onInputChangeEvent(event: any) {
-    console.log('onEvent', event.detail);
-  }
-  submitForm() {
-    console.log('handleClick');
-  }
-}
+export class AppComponent { }

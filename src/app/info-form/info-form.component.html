@@ -1,58 +1,43 @@
-
-<!--
-  //FORM API test
-<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
-  Favorite Color1: <input name="favoriteColor1" [(ngModel)]="favoriteColor1">
-  <br>
-  <br>
-  Favorite Color2: <goa-input name="favoriteColor2" [(ngModel)]="favoriteColor2"></goa-input>
-</form>
-
-<br>
-favoriteColor1 is {{favoriteColor1}}
-<br>
-favoriteColor2 is {{favoriteColor2}}
-
--->
-
-
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-
-  <goa-container headingsize="small" variant="primary">
-
+<form (ngSubmit)="onSubmit()">
+  <goa-container accent="thin">
     <goa-flex-row gap="medium">
       <goa-form-item label="Your role">
         <goa-input
+          goaValue
           width="100%"
+          [(ngModel)]="userRole"
           name="userRole"
-          formControlName="userRole"
         >
         </goa-input>
       </goa-form-item>
     </goa-flex-row>
 
-
     <goa-flex-row gap="medium">
       <goa-form-item label="Start date">
         <goa-input
+          goaValue
+          type="date"
           width="100%"
+          [(ngModel)]="startDate"
           name="startDate"
-          formControlName="startDate"
         ></goa-input>
       </goa-form-item>
 
       <goa-flex-col>
         <goa-form-item label="End date">
           <goa-input
+            goaValue
+            type="date"
             width="100%"
+            [(ngModel)]="endDate"
             name="endDate"
-            formControlName="endDate"
           >
           </goa-input>
         </goa-form-item>
         <goa-checkbox
+          goaValue
+          [(ngModel)]="isCurrentlyEmployed"
           name="currently-employed"
-          formControlName="isCurrentlyEmployed"
         >
           Currently employed
         </goa-checkbox>
@@ -62,20 +47,22 @@ favoriteColor2 is {{favoriteColor2}}
     <goa-flex-row gap="medium">
       <goa-form-item label="Number of months">
         <goa-input
+          goaValue
           width="100%"
-          name="months"
           type="number"
-          formControlName="numberOfMonths"
+          [(ngModel)]="numberOfMonths"
+          name="months"
         >
         </goa-input>
       </goa-form-item>
 
       <goa-form-item label="Number of hours">
         <goa-input
+          goaValue
           width="100%"
-          name="hours"
           type="number"
-          formControlName="numberOfHours"
+          [(ngModel)]="numberOfHours"
+          name="hours"
         >
         </goa-input>
       </goa-form-item>
@@ -84,11 +71,12 @@ favoriteColor2 is {{favoriteColor2}}
     <goa-flex-row gap="medium">
       <goa-form-item label="Description of work" optional="true" helpText="Describe other unique tasks">
         <goa-textarea
+          goaValue
           width="100%"
-          name="tasks"
           showCounter="true"
           maxCharCount="200"
-          formControlName="descriptionOfWork"
+          [(ngModel)]="descriptionOfWork"
+          name="tasks"
         >
         </goa-textarea>
       </goa-form-item>
@@ -96,15 +84,16 @@ favoriteColor2 is {{favoriteColor2}}
 
     <goa-flex-row gap="medium">
       <goa-form-item label="Job Type">
-        <goa-radio-group
-          name="jobtype"></goa-radio-group>
+        <goa-radio-group goaValue name="jobtype" [(ngModel)]="jobType">
+          <goa-radio-item name="jobtype" value="Developer"></goa-radio-item>
+          <goa-radio-item name="jobtype" value="Designer"></goa-radio-item>
+        </goa-radio-group>
       </goa-form-item>
     </goa-flex-row>
 
     <goa-button-group alignment="start">
-      <goa-button type="secondary">Back</goa-button>
-      <button type="submit" [disabled]="!profileForm.valid">Save</button>
+      <goa-button type="secondary" (_click)="onClick()">Back</goa-button>
+      <button type="submit">Save</button>
     </goa-button-group>
-
   </goa-container>
 </form>
