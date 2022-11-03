@@ -1,37 +1,39 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { format } from "date-fns";
 
 @Component({
   selector: 'app-info-form',
   templateUrl: './info-form.component.html',
-  styleUrls: ['./info-form.component.css']
+  styleUrls: ['./info-form.component.css'],
 })
+
 export class InfoFormComponent {
+  userRole: string = "";
+  startDate: string = "";
+  endDate: string = "";
+  isCurrentlyEmployed: string = "";
+  numberOfMonths: string = "";
+  numberOfHours: string = "";
+  descriptionOfWork: string = "";
+  jobType:string = "";
 
-  profileForm = this.fb.group({
-    userRole : [''],
-    startDate : [''],
-    endDate : [''],
-    isCurrentlyEmployed  : [''],
-    numberOfMonths : [''],
-    numberOfHours : [''],
-    descriptionOfWork : ['']
-  });
+  constructor(private router: Router) { }
 
-  constructor(private fb: FormBuilder) { }
-
-  onSubmit() {
-    console.warn(this.profileForm.value);
+  onClick() {
+    this.router.navigate(["/home"]);
   }
 
-  /*
-
-  favoriteColor1 = '';
-  favoriteColor2 = '';
-
-  onSubmit() {
-    console.warn( console.log(this.favoriteColor1) );
-    console.warn( console.log(this.favoriteColor2) );
+  onSubmit(): void {
+    console.log(
+      this.userRole,
+      this.startDate,
+      this.endDate,
+      this.isCurrentlyEmployed,
+      this.numberOfMonths,
+      this.numberOfHours,
+      this.descriptionOfWork,
+      this.jobType
+    );
   }
-  */
 }
