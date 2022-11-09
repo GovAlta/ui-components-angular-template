@@ -1,11 +1,11 @@
-<form (ngSubmit)="onSubmit()">
+<form>
   <goa-container accent="thin">
     <goa-flex-row gap="medium">
       <goa-form-item label="Your role">
         <goa-input
           goaValue
           width="100%"
-          [(ngModel)]="userRole"
+          [(ngModel)]="data.userRole"
           name="userRole"
         >
         </goa-input>
@@ -18,7 +18,7 @@
           goaValue
           type="date"
           width="100%"
-          [(ngModel)]="startDate"
+          [(ngModel)]="data.startDate"
           name="startDate"
         ></goa-input>
       </goa-form-item>
@@ -29,14 +29,14 @@
             goaValue
             type="date"
             width="100%"
-            [(ngModel)]="endDate"
+            [(ngModel)]="data.endDate"
             name="endDate"
           >
           </goa-input>
         </goa-form-item>
         <goa-checkbox
           goaValue
-          [(ngModel)]="isCurrentlyEmployed"
+          [(ngModel)]="data.isCurrentlyEmployed"
           name="currently-employed"
         >
           Currently employed
@@ -50,7 +50,7 @@
           goaValue
           width="100%"
           type="number"
-          [(ngModel)]="numberOfMonths"
+          [(ngModel)]="data.numberOfMonths"
           name="months"
         >
         </goa-input>
@@ -61,7 +61,7 @@
           goaValue
           width="100%"
           type="number"
-          [(ngModel)]="numberOfHours"
+          [(ngModel)]="data.numberOfHours"
           name="hours"
         >
         </goa-input>
@@ -69,13 +69,17 @@
     </goa-flex-row>
 
     <goa-flex-row gap="medium">
-      <goa-form-item label="Description of work" optional="true" helpText="Describe other unique tasks">
+      <goa-form-item
+        label="Description of work"
+        optional="true"
+        helpText="Describe other unique tasks"
+      >
         <goa-textarea
           goaValue
           width="100%"
           showCounter="true"
           maxCharCount="200"
-          [(ngModel)]="descriptionOfWork"
+          [(ngModel)]="data.descriptionOfWork"
           name="tasks"
         >
         </goa-textarea>
@@ -84,7 +88,7 @@
 
     <goa-flex-row gap="medium">
       <goa-form-item label="Job Type">
-        <goa-radio-group goaValue name="jobtype" [(ngModel)]="jobType">
+        <goa-radio-group goaValue name="jobtype" [(ngModel)]="data.jobType">
           <goa-radio-item name="jobtype" value="Developer"></goa-radio-item>
           <goa-radio-item name="jobtype" value="Designer"></goa-radio-item>
         </goa-radio-group>
@@ -93,7 +97,7 @@
 
     <goa-button-group alignment="start">
       <goa-button type="secondary" (_click)="onClick()">Back</goa-button>
-      <button type="submit">Save</button>
+      <goa-button type="primary" (_click)="onSubmit()">Save</goa-button>
     </goa-button-group>
   </goa-container>
 </form>
