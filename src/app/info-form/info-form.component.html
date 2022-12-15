@@ -1,6 +1,6 @@
 <form>
   <goa-container accent="thin">
-    <goa-flex-row gap="medium">
+    <goa-grid minChildWidth="30ch">
       <goa-form-item label="Your role">
         <goa-input
           goaValue
@@ -10,9 +10,9 @@
         >
         </goa-input>
       </goa-form-item>
-    </goa-flex-row>
+    </goa-grid>
 
-    <goa-flex-row gap="medium">
+    <goa-grid minChildWidth="30ch">
       <goa-form-item label="Start date">
         <goa-input
           goaValue
@@ -23,28 +23,26 @@
         ></goa-input>
       </goa-form-item>
 
-      <goa-flex-col>
-        <goa-form-item label="End date">
-          <goa-input
-            goaValue
-            type="date"
-            width="100%"
-            [(ngModel)]="data.endDate"
-            name="endDate"
-          >
-          </goa-input>
-        </goa-form-item>
-        <goa-checkbox
+      <goa-form-item label="End date">
+        <goa-input
           goaValue
-          [(ngModel)]="data.isCurrentlyEmployed"
-          name="currently-employed"
+          type="date"
+          width="100%"
+          [(ngModel)]="data.endDate"
+          name="endDate"
         >
-          Currently employed
-        </goa-checkbox>
-      </goa-flex-col>
-    </goa-flex-row>
+        </goa-input>
+      </goa-form-item>
+      <goa-checkbox
+        goaValue
+        [(ngModel)]="data.isCurrentlyEmployed"
+        name="currently-employed"
+      >
+        Currently employed
+      </goa-checkbox>
+    </goa-grid>
 
-    <goa-flex-row gap="medium">
+    <goa-grid minChildWidth="30ch">
       <goa-form-item label="Number of months">
         <goa-input
           goaValue
@@ -66,9 +64,9 @@
         >
         </goa-input>
       </goa-form-item>
-    </goa-flex-row>
+    </goa-grid>
 
-    <goa-flex-row gap="medium">
+    <goa-grid minChildWidth="30ch">
       <goa-form-item
         label="Description of work"
         optional="true"
@@ -84,16 +82,16 @@
         >
         </goa-textarea>
       </goa-form-item>
-    </goa-flex-row>
+    </goa-grid>
 
-    <goa-flex-row gap="medium">
+    <goa-grid minChildWidth="30ch">
       <goa-form-item label="Job Type">
         <goa-radio-group goaValue name="jobtype" [(ngModel)]="data.jobType">
           <goa-radio-item name="jobtype" value="Developer"></goa-radio-item>
           <goa-radio-item name="jobtype" value="Designer"></goa-radio-item>
         </goa-radio-group>
       </goa-form-item>
-    </goa-flex-row>
+    </goa-grid>
 
     <goa-button-group alignment="start">
       <goa-button type="secondary" (_click)="onClick()">Back</goa-button>
