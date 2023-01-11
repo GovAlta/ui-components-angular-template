@@ -10,14 +10,14 @@ import { AngularComponentsModule } from '@abgov/angular-components';
 
 import { HomeComponent } from './home/home.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
-import { InfoFormComponent } from './info-form/info-form.component';
+import { BasicFormComponent } from './basic-form/basic-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     WorkExperienceComponent,
-    InfoFormComponent,
+    BasicFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,54 @@
+<form [formGroup]="basicForm">
+  <h2>Submit your form</h2>
+  <h3>
+    Below is a basic form built from the component library for you to try out and use as a starting point for your service.
+  </h3>
+
+  <goa-circular-progress visible=false variant="fullscreen" size="large" message="Processing your form..."></goa-circular-progress>
+
+  <goa-grid minChildWidth="30ch">
+    <goa-form-item
+      label="This is text input"
+      requirement="optional"
+      helpText="You can add helper text to provide additional context to the user."
+    >
+      <goa-input
+        goaValue
+        width="100%"
+        formControlName="textInput"
+        name="textInput"
+      >
+      </goa-input>
+    </goa-form-item>
+  </goa-grid>
+
+  <goa-grid minChildWidth="30ch">
+    <goa-form-item label="Email input" [error]="getErrorMessage('email')">
+      <goa-input goaValue width="100%" type="email" formControlName="email"></goa-input>    
+    </goa-form-item>
+
+    <goa-form-item label="Phone number input" [error]="getErrorMessage('phone')">
+      <goa-input goaValue width="100%" type="tel" formControlName="phone"></goa-input>
+    </goa-form-item>
+  </goa-grid>
+
+  <goa-grid minChildWidth="30ch">
+    <goa-form-item label="Text area" [error]="getErrorMessage('textarea')">
+      <goa-textarea goaValue width="100%" formControlName="textarea"></goa-textarea>
+    </goa-form-item>
+  </goa-grid>
+
+  <goa-grid minChildWidth="30ch">
+    <goa-form-item label="Do you want to show another type of input?" [error]="getErrorMessage('moreInput')">
+      <goa-radio-group goaValue name="moreInput" formControlName="moreInput">
+        <goa-radio-item key="yes" name="moreInput" value="yes" label="Yes"></goa-radio-item>
+        <goa-radio-item key="no" name="moreInput" value="no" label="No"></goa-radio-item>
+      </goa-radio-group>
+    </goa-form-item>
+  </goa-grid>
+
+  <goa-button-group alignment="start" mt="l" mb="3xl">
+    <goa-button type="secondary">Cancel form</goa-button>
+    <goa-button type="primary" (_click)="onSubmit()">Save and continue</goa-button>
+  </goa-button-group>
+</form>
