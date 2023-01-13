@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Location} from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-basic-form',
@@ -8,15 +10,43 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 
 export class BasicFormComponent {
+  constructor(private fb: FormBuilder, private location: Location, private router: Router) { };
+
   basicForm = this.fb.group({
     textInput: [''],
     email: ['', [Validators.required, Validators.email]],
     phone: ['', [Validators.required, Validators.pattern(new RegExp(/^\+?[\d-() ]{10,18}$/))]],
-    textarea: ['', [Validators.required]],
-    moreInput: ['', [Validators.required, Validators.max(200)]],
+    textarea: ['', [Validators.required, Validators.maxLength(200)]],
+    moreInput: ['no'],
   });
 
-  constructor(private fb: FormBuilder) { }
+  isModalOpen = false;
+  isShowContainer = false;
+  errors: { [key: string]: string } = {};
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  showContainer(){
+    if(this.basicForm.controls['moreInput'].value == "yes")
+    {
+      this.isShowContainer = true;
+    }
+    else{
+      this.isShowContainer = false;
+    }
+  }
+
+  removeContainer(){
+    this.isShowContainer = false;
+    this.basicForm.controls['moreInput'].setValue('no');
+    this.isModalOpen = false;
+  }
 
   getErrorMessage(name: string): string {
     if (this.basicForm.get(name)?.hasError('required')) {
@@ -33,8 +63,8 @@ export class BasicFormComponent {
             return 'Invalid phone number';
           }
           break;
-        case 'moreInput':
-          if (this.basicForm.get('moreInput')?.hasError('max')) {
+        case 'textarea':
+          if (this.basicForm.get('textarea')?.hasError('maxlength')) {
             return 'Must be less than 200 characters';
           }
           break;
@@ -47,6 +77,16 @@ export class BasicFormComponent {
   }
 
   onSubmit() {
-    console.log(this.basicForm.get('phone')?.errors);
+    Object.keys(this.basicForm.controls).forEach(control => {
+      this.errors[control] = this.getErrorMessage(control);
+    });        
+    if (this.basicForm.valid)
+    {
+    this.router.navigate(['/basic-form-success']);
+    }
+  }
+
+  onCancel() {
+    this.location.back();
   }
 }

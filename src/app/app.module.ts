@@ -11,6 +11,7 @@ import { AngularComponentsModule } from '@abgov/angular-components';
 import { HomeComponent } from './home/home.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { BasicFormComponent } from './basic-form/basic-form.component';
+import { BasicFormSuccessComponent } from './basic-form/basic-form-success.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { BasicFormComponent } from './basic-form/basic-form.component';
     HomeComponent,
     WorkExperienceComponent,
     BasicFormComponent,
+    BasicFormSuccessComponent
   ],
   imports: [
     BrowserModule,

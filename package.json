@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "format": "nx format:write",
+    "format:write": "nx format:write",
+    "format:check": "nx format:check"
   },
   "private": true,
   "dependencies": {
