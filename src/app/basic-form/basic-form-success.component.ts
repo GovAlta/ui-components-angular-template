@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import {Location} from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +8,7 @@ import { Router } from '@angular/router';
 })
 
 export class BasicFormSuccessComponent {
-    constructor(private fb: FormBuilder, private location: Location, private router: Router) { }
+    constructor(private router: Router) { }
     onClick() {
         this.router.navigate(['/home']);
       }

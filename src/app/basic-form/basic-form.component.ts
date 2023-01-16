@@ -22,6 +22,7 @@ export class BasicFormComponent {
 
   isModalOpen = false;
   isShowContainer = false;
+  showProgress = false;
   errors: { [key: string]: string } = {};
 
   openModal() {
@@ -82,7 +83,11 @@ export class BasicFormComponent {
     });        
     if (this.basicForm.valid)
     {
-    this.router.navigate(['/basic-form-success']);
+      this.showProgress = true;
+      setTimeout(() => {
+        this.showProgress = false;
+        this.router.navigate(['/basic-form-success']);
+    }, 2000);
     }
   }
 

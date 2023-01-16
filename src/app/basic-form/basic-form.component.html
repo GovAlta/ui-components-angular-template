@@ -4,7 +4,7 @@
     Below is a basic form built from the component library for you to try out and use as a starting point for your service.
   </h3>
 
-  <goa-circular-progress visible=false variant="fullscreen" size="large" message="Processing your form..."></goa-circular-progress>
+  <goa-circular-progress [visible]="showProgress" variant="fullscreen" size="large" message="Processing your form..."></goa-circular-progress>
 
   <goa-grid minChildWidth="30ch">
     <goa-form-item
