@@ -1,0 +1,90 @@
+<form [formGroup]="basicForm">
+  <h2>Submit your form</h2>
+  <h3>
+    Below is a basic form built from the component library for you to try out and use as a starting point for your service.
+  </h3>
+
+  <goa-circular-progress [visible]="showProgress" variant="fullscreen" size="large" message="Processing your form..."></goa-circular-progress>
+
+  <goa-grid minChildWidth="30ch">
+    <goa-form-item
+      label="This is text input"
+      requirement="optional"
+      helpText="You can add helper text to provide additional context to the user."
+    >
+      <goa-input
+        goaValue
+        width="100%"
+        formControlName="textInput"
+        name="textInput"
+      >
+      </goa-input>
+    </goa-form-item>
+  </goa-grid>
+
+  <goa-grid minChildWidth="30ch">
+    <goa-form-item label="Email input" [error]="errors['email']">
+      <goa-input goaValue width="100%" type="email" formControlName="email"></goa-input>    
+    </goa-form-item>
+
+    <goa-form-item label="Phone number input" [error]="errors['phone']">
+      <goa-input goaValue width="100%" type="tel" formControlName="phone"></goa-input>
+    </goa-form-item>
+  </goa-grid>
+
+  <goa-grid minChildWidth="30ch">
+    <goa-form-item label="Text area" [error]="errors['textarea']" helpText="The text area can count the number of characters a user inputs.">
+      <goa-textarea goaValue width="100%" formControlName="textarea"></goa-textarea>
+    </goa-form-item>
+  </goa-grid>
+
+  <goa-grid minChildWidth="30ch">
+    <goa-form-item label="Do you want to show another type of input?">
+      <goa-radio-group goaValue name="moreInput" (_change)="showContainer()" formControlName="moreInput">
+        <goa-radio-item key="yes" name="moreInput" value="yes" label="Yes"></goa-radio-item>
+        <goa-radio-item key="no" name="moreInput" value="no" label="No"></goa-radio-item>
+      </goa-radio-group>
+    </goa-form-item>
+  </goa-grid>
+
+  <div *ngIf="isShowContainer">
+  <goa-container type="interactive" accent="thick">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <h3>This is an interactive container</h3>
+      <goa-button (_click)="openModal()" type="tertiary">Remove container</goa-button>
+    </div>
+    <p>
+      You can use a container to group related content and tasks. An interactive container indicates that there is content within actionable, and is denoted by the teal colour band.
+    </p>
+
+    <goa-form-item 
+      label="Do you want to show another type of input?"
+      helpText="You can select multiple items on this list."
+    >
+    <goa-checkbox name="items" text="Item 1" value="item1"></goa-checkbox>
+    <goa-checkbox name="items" text="Item 2" value="item1"></goa-checkbox>
+    <goa-checkbox name="items" text="Item 3" value="item1"></goa-checkbox>
+    </goa-form-item>
+  </goa-container>
+  </div>
+
+  <div class="space-3"></div>
+
+  <goa-button-group alignment="start">
+    <goa-button type="secondary"(_click)="onCancel()">Cancel form</goa-button>
+    <goa-button type="primary" (_click)="onSubmit()">Save and continue</goa-button>
+  </goa-button-group>
+
+  <div class="space-5"></div>
+
+  <goa-modal id="modal2" heading="Are you sure you want to remove this container?" [open]="isModalOpen">
+    <p>
+      This is a modal that confirms with the user before preforming a destructive action that they will not be able to undo.
+    </p>
+    <goa-button-group alignment="end" slot="actions">
+      <goa-button type="secondary" (_click)="closeModal()">Cancel</goa-button>
+      <goa-button type="primary" variant="destructive" (_click)="removeContainer()">Remove container</goa-button>
+    </goa-button-group>
+  </goa-modal>
+  
+</form>
