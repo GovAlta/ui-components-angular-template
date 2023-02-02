@@ -1,16 +1,18 @@
 # Angular product template
 
-To help get teams up and running sooner, this product template to DDI product teams to showcase the ui-components and provide a starting point for teams building DDI products.
+To help get teams up and running sooner, this product template to DDD product teams to showcase the ui-components and provide a starting point for teams building DDD products.
 
-## Get started
+### usage
+To use the templates, follow these steps:
 
-To get started with Angular click the `Use this template` button.
-
-## Storybook docs
-
-Documentation for all available components can be viewed at [Storybook: Angular UI Components](https://ui-components-ui-components-dev.os99.gov.ab.ca/)
-
-
-## Bugs
-
-Any issues with this template, or the Angular components, should be created at [Bugs: Angular UI Components](https://github.com/GovAlta/ui-components/issues/new?assignees=&labels=bug&template=log-a-bug.md&title=)
+1. Click the green **Use this template** button
+2. Select **Create a new repository**
+3. Select an owner and give the repo a suitable name for your project
+4. Select either Public or Private
+5. Click the button **Create repository from template**
+6. Clone the repo onto your machine
+7. Using a terminal of some kind, go into the directory you created and run the following commands (in order):
+   1. `npm i`
+   2. `npm run build`
+   3. `npm run start`
+8. Go to the listed port number of your localhost
