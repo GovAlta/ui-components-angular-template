@@ -2,7 +2,7 @@
 
 To help get teams up and running sooner, this product template to DDD product teams to showcase the ui-components and provide a starting point for teams building DDD products.
 
-### usage
+### Usage
 To use the templates, follow these steps:
 
 1. Click the green **Use this template** button
@@ -16,3 +16,7 @@ To use the templates, follow these steps:
    2. `npm run build`
    3. `npm run start`
 8. Go to the listed port number of your localhost
+
+---
+
+[Visit Design System](https://ui-components.alberta.ca)
