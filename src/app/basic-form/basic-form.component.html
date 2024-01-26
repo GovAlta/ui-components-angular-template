@@ -34,7 +34,7 @@
 
   <goa-grid minChildWidth="30ch">
     <goa-form-item label="Text area" [error]="errors['textarea']" helpText="The text area can count the number of characters a user inputs.">
-      <goa-textarea goaValue width="100%" formControlName="textarea"></goa-textarea>
+      <goa-textarea goaValue width="100%" formControlName="textarea" countby="character" maxcount="200"></goa-textarea>
     </goa-form-item>
   </goa-grid>
 
